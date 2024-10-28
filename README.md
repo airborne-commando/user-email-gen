@@ -1,4 +1,4 @@
-# Email generator for both cock.li and proton mail
+# Email username for both cock.li and proton mail
 
 To install simply run
 
