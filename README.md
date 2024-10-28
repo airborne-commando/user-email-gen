@@ -8,6 +8,8 @@ then
 
 `source venv/bin/activate`
 
+`pip install -r requirements.txt`
+
 after that run
 
 `python email-gen.py`
