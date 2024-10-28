@@ -1,3 +1,5 @@
+# Email generator for both cock.li and proton mail
+
 To install simply run
 
 `python -m venv venv`
