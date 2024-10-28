@@ -21,3 +21,5 @@ exmaple:
 
     Cock.li email: sophiaadamss67@cock.li | Password: IH'`%Yx<EIinp[\+.(P/Kka\#[qyE8y|3%dQ*BmOM1|XnKG-W:)"NURwgHBf*pGl
     ProtonMail email: williamadamsc9tb@proton.me | Password: z3N9iMv^*@qj]"RG"/blelmvO"2{+,\E'dxv!T,*VwQB"KP}tmEP&UWKkgAAbwgh
+
+# Do not abuse this
