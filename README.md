@@ -8,9 +8,20 @@ then
 
 `source venv/bin/activate`
 
+`pip install flask`
+
 after that run
 
-`python email-gen.py`
+    python email-gen.py 
+
+for a CLI
+
+OR
+
+    python app.py
+
+For a HTML page
+
 
 From there you should be given a list of domains to choose from or if you want you can choose a random one from cock.li
 
