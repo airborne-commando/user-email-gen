@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 20px auto; padding: 0 20px; }
+        pre { white-space: pre-wrap; word-wrap: break-word; background-color: #f0f0f0; padding: 10px; border-radius: 5px; }
+        .email { color: #0066cc; }
+        .password { color: #006600; word-break: break-all; }
+        .domain-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+        .domain-item { display: flex; align-items: center; }
+        .domain-item input { margin-right: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Email Generator</h1>
+    <form method="post" id="emailForm">
+        <div class="domain-list">
+            {% for domain in domains %}
+            <div class="domain-item">
+                <input type="checkbox" id="{{ domain }}" name="domains" value="{{ domain }}" 
+                       {% if domain in selected_domains %}checked{% endif %}>
+                <label for="{{ domain }}">{{ domain }}</label>
+            </div>
+            {% endfor %}
+        </div>
+        <p><small>Select domains you want to generate emails for</small></p>
+        <input type="submit" value="Generate">
+    </form>
+    {% if result %}
+    <h2>Generated Emails:</h2>
+    <pre>{% for line in result.split('\n') %}{% if 'Email:' in line %}<span class="email">{{ line }}</span>{% elif 'Password:' in line %}<span class="password">{{ line }}</span>{% else %}{{ line }}{% endif %}
+{% endfor %}</pre>
+    {% endif %}
+
+    <script>
+        document.getElementById('emailForm').addEventListener('submit', function(e) {
+            var checkboxes = document.querySelectorAll('input[name="domains"]:checked');
+            if (checkboxes.length === 0) {
+                e.preventDefault();
+                alert('Please select at least one domain.');
+            }
+        });
+    </script>
+</body>
+</html>
