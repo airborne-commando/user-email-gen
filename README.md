@@ -1,22 +1,23 @@
 # Email username for both cock.li and proton mail
 
-To install simply run
-
-`python -m venv venv`
-
-then
-
-`source venv/bin/activate`
-
-`pip install flask`
-
-after that run
+To install and just run for a CLI just run
 
     python email-gen.py 
+    
 
-for a CLI
+For HTML just simply do these steps:
 
-OR
+    python -m venv venv
+
+</br>
+
+    source venv/bin/activate
+
+</br>
+
+    pip install flask
+
+after that run
 
     python app.py
 
@@ -28,7 +29,6 @@ From there you should be given a list of domains to choose from or if you want y
 when executed it will display a username and password for both proton and cock.li
 
 exmaple:
-
 
     Cock.li email: sophiaadamss67@cock.li | Password: IH'`%Yx<EIinp[\+.(P/Kka\#[qyE8y|3%dQ*BmOM1|XnKG-W:)"NURwgHBf*pGl
     ProtonMail email: williamadamsc9tb@proton.me | Password: z3N9iMv^*@qj]"RG"/blelmvO"2{+,\E'dxv!T,*VwQB"KP}tmEP&UWKkgAAbwgh
