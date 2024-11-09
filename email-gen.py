@@ -125,7 +125,8 @@ e=lambda d:(f"{random.choice(n).lower()}{random.choice(s).lower()}{g(random.rand
 print("\n".join(f"{i+1}: {domain}" for i, domain in enumerate(d)))
 c,cp=e(d[random.randint(0,7) if not (i:=input("Select a domain (1-8) or press Enter for random: ")) else max(0,min(int(i)-1,7))])
 pm,pmp=e('proton.me')
-print(f"Cock.li: {c} | {cp}\nProtonMail: {pm} | {pmp}")
+om,omp=e('outlook.com')
+print(f"Cock.li: {c} | {cp}\nProtonMail: {pm} | {pmp}\nOutlook: {om} | {omp}")
 
 # Expanded lists of prefixes, core words, and suffixes
 prefixes = [
