@@ -28,6 +28,8 @@ From there you should be given a list of domains to choose from or if you want y
 
 when executed it will display a username and password for both proton and cock.li
 
+You will still need to solve a captcha for cock.li if you decide to use this.
+
 exmaple:
 
     Cock.li email: sophiaadamss67@cock.li | Password: IH'`%Yx<EIinp[\+.(P/Kka\#[qyE8y|3%dQ*BmOM1|XnKG-W:)"NURwgHBf*pGl
