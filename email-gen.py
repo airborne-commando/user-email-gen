@@ -127,8 +127,6 @@ c,cp=e(d[random.randint(0,7) if not (i:=input("Select a domain (1-8) or press En
 pm,pmp=e('proton.me')
 print(f"Cock.li: {c} | {cp}\nProtonMail: {pm} | {pmp}")
 
-import random
-
 # Expanded lists of prefixes, core words, and suffixes
 prefixes = [
     'aether', 'binary', 'crypto', 'digital', 'epsilon', 'fractal', 'gamma', 'helix', 'infinity', 'joule',
