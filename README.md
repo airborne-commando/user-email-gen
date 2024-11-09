@@ -26,7 +26,7 @@ For a HTML page
 
 From there you should be given a list of domains to choose from or if you want you can choose a random one from cock.li
 
-when executed it will display a username and password for both proton and cock.li
+when executed it will display a username and password for outlook, proton and cock.li
 
 You will still need to solve a captcha for cock.li if you decide to use this.
 
