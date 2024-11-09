@@ -126,3 +126,65 @@ print("\n".join(f"{i+1}: {domain}" for i, domain in enumerate(d)))
 c,cp=e(d[random.randint(0,7) if not (i:=input("Select a domain (1-8) or press Enter for random: ")) else max(0,min(int(i)-1,7))])
 pm,pmp=e('proton.me')
 print(f"Cock.li: {c} | {cp}\nProtonMail: {pm} | {pmp}")
+
+import random
+
+# Expanded lists of prefixes, core words, and suffixes
+prefixes = [
+    'aether', 'binary', 'crypto', 'digital', 'epsilon', 'fractal', 'gamma', 'helix', 'infinity', 'joule',
+    'kelvin', 'lambda', 'matrix', 'nano', 'omega', 'photon', 'quantum', 'radiant', 'synth', 'tensor',
+    'utopia', 'vector', 'warp', 'xenon', 'yttrium', 'zeta', 'aurora', 'binary', 'celestial', 'dynamo',
+    'eclipse', 'flux', 'gravity', 'helios', 'isotope', 'jupiter', 'kaleidoscope', 'lithium', 'magma', 'nebula',
+    'orbit', 'pulsar', 'quasar', 'radium', 'singularity', 'tachyon', 'uranium', 'vortex', 'wormhole', 'x-ray',
+    'yukon', 'zircon', 'atomic', 'bionic', 'carbon', 'dyson', 'entropy', 'fusion', 'galactic', 'hadron',
+    'ionic', 'kinetic', 'laser', 'magnetic', 'neutrino', 'ozone', 'particle', 'quantum', 'relativity', 'scalar',
+    'thermal', 'ultraviolet', 'vacuum', 'wavelength', 'x-factor', 'yield', 'zero-point', 'acceleron', 'borealis', 'cosmo',
+    'dimension', 'electron', 'fermion', 'graviton', 'horizon', 'interstellar', 'jovian', 'kelvin', 'luminous', 'multiverse',
+    'neutron', 'orbital', 'planck', 'qubit', 'resonance', 'supernova', 'tesseract', 'unified', 'void', 'wavefunction',
+    'xenomorph', 'yang', 'zeitgeist', 'absolute', 'blackhole', 'continuum', 'dark-matter', 'event-horizon', 'fibonacci'
+]
+
+core_words = [
+    'cascade', 'nebula', 'vortex', 'prism', 'nexus', 'quanta', 'fusion', 'nova', 'pulsar', 'quasar',
+    'radiance', 'singularity', 'spectrum', 'tempest', 'zenith', 'aurora', 'cosmos', 'eclipse', 'galaxy', 'horizon',
+    'infinity', 'nebula', 'orbit', 'parallax', 'quantum', 'radiant', 'stellar', 'universe', 'vortex', 'wormhole',
+    'x-ray', 'yocto', 'zephyr', 'atom', 'binary', 'core', 'dimension', 'entropy', 'fractal', 'gravity',
+    'helix', 'isotope', 'joule', 'kinetic', 'luminous', 'matrix', 'neutron', 'oscillation', 'photon', 'quark',
+    'resonance', 'scalar', 'tensor', 'uncertainty', 'vector', 'wave', 'x-factor', 'yield', 'zero-point', 'accelerate',
+    'beam', 'collide', 'diffract', 'emit', 'fission', 'gravitate', 'harmonize', 'ionize', 'jump', 'kaleidoscope',
+    'levitate', 'magnify', 'neutralize', 'oscillate', 'polarize', 'quantize', 'radiate', 'synchronize', 'teleport', 'unify',
+    'vibrate', 'warp', 'x-ray', 'yield', 'zoom', 'amplify', 'bend', 'compress', 'distort', 'expand',
+    'fluctuate', 'gyrate', 'hover', 'implode', 'juggle', 'knot', 'loop', 'morph', 'negate', 'orbit'
+]
+
+suffixes = [
+    'nexus', 'prime', 'quantum', 'rex', 'sigma', 'tau', 'ultra', 'vortex', 'wave', 'xen',
+    'yin', 'zeta', 'aeon', 'byte', 'core', 'dyne', 'echo', 'flux', 'giga', 'hyper',
+    'ion', 'jolt', 'kilo', 'lux', 'mega', 'neo', 'omni', 'pico', 'quad', 'rift',
+    'sync', 'tera', 'uni', 'volt', 'watt', 'xeno', 'yotta', 'zetta', 'apex', 'binary',
+    'cipher', 'delta', 'epsilon', 'fractal', 'gamma', 'helix', 'infinity', 'joule', 'kappa',
+    'lambda', 'mu', 'nu', 'omicron', 'pi', 'qubit', 'rho', 'sigma', 'theta', 'upsilon',
+    'phi', 'chi', 'psi', 'omega', 'absolute', 'beta', 'cosmic', 'dimension', 'entropy', 'fusion',
+    'gravity', 'horizon', 'isotope', 'kinetic', 'luminous', 'matrix', 'neutron', 'orbital', 'photon', 'quark',
+    'relativity', 'singularity', 'tachyon', 'uncertainty', 'vacuum', 'wormhole', 'x-factor', 'yang', 'zero-point', 'acceleron',
+    'boson', 'chromodynamic', 'deuterium', 'eigenstate', 'fermion', 'gluon', 'hadron', 'inflaton', 'lepton', 'meson'
+]
+
+# Function to generate a random username
+def generate_username():
+    prefix = random.choice(prefixes)
+    core_word = random.choice(core_words)
+    suffix = random.choice(suffixes)
+    username = prefix + core_word + suffix
+
+    # Optionally add a random number with a probability of 50%
+    if random.random() < 0.5:
+        number = random.randint(1, 999)
+        username += str(number)
+
+    return username
+
+# Generate and print a random username
+username = generate_username()
+print("your username is:", username)
+
