@@ -182,7 +182,11 @@ def generate_username():
 
     return username
 
+def generate_password():
+    return ''.join(random.choice(string.ascii_letters + string.digits + string.punctuation) for _ in range(64))
+
 # Generate and print a random username
 username = generate_username()
 print("your username is:", username)
-
+password = generate_password()
+print("Your password is:", password)
