@@ -1,10 +1,20 @@
-from flask import Flask, render_template, request
-import random, string
-import socket
+import random,string
 
-app = Flask(__name__)
+        # Print the ASCII art
+print("""
+▓█████  ███▄ ▄███▓ ▄▄▄       ██▓ ██▓         ▄████ ▓█████  ███▄    █ ▓█████  ██▀███   ▄▄▄     ▄▄▄█████▓ ▒█████   ██▀███  
+▓█   ▀ ▓██▒▀█▀ ██▒▒████▄    ▓██▒▓██▒        ██▒ ▀█▒▓█   ▀  ██ ▀█   █ ▓█   ▀ ▓██ ▒ ██▒▒████▄   ▓  ██▒ ▓▒▒██▒  ██▒▓██ ▒ ██▒
+▒███   ▓██    ▓██░▒██  ▀█▄  ▒██▒▒██░       ▒██░▄▄▄░▒███   ▓██  ▀█ ██▒▒███   ▓██ ░▄█ ▒▒██  ▀█▄ ▒ ▓██░ ▒░▒██░  ██▒▓██ ░▄█ ▒
+▒▓█  ▄ ▒██    ▒██ ░██▄▄▄▄██ ░██░▒██░       ░▓█  ██▓▒▓█  ▄ ▓██▒  ▐▌██▒▒▓█  ▄ ▒██▀▀█▄  ░██▄▄▄▄██░ ▓██▓ ░ ▒██   ██░▒██▀▀█▄  
+░▒████▒▒██▒   ░██▒ ▓█   ▓██▒░██░░██████▒   ░▒▓███▀▒░▒████▒▒██░   ▓██░░▒████▒░██▓ ▒██▒ ▓█   ▓██▒ ▒██▒ ░ ░ ████▓▒░░██▓ ▒██▒
+░░ ▒░ ░░ ▒░   ░  ░ ▒▒   ▓▒█░░▓  ░ ▒░▓  ░    ░▒   ▒ ░░ ▒░ ░░ ▒░   ▒ ▒ ░░ ▒░ ░░ ▒▓ ░▒▓░ ▒▒   ▓▒█░ ▒ ░░   ░ ▒░▒░▒░ ░ ▒▓ ░▒▓░
+ ░ ░  ░░  ░      ░  ▒   ▒▒ ░ ▒ ░░ ░ ▒  ░     ░   ░  ░ ░  ░░ ░░   ░ ▒░ ░ ░  ░  ░▒ ░ ▒░  ▒   ▒▒ ░   ░      ░ ▒ ▒░   ░▒ ░ ▒░
+   ░   ░      ░     ░   ▒    ▒ ░  ░ ░      ░ ░   ░    ░      ░   ░ ░    ░     ░░   ░   ░   ▒    ░      ░ ░ ░ ▒    ░░   ░ 
+   ░  ░       ░         ░  ░ ░      ░  ░         ░    ░  ░         ░    ░  ░   ░           ░  ░            ░ ░     ░                                                                                                                              
+""")
 
-d = ['cock.li', 'airmail.cc', 'firemail.cc', 'tfwno.gf', 'cock.lu', 'aaathats3as.com', 'national.shitposting.agency', 'cumallover.me']
+
+d=['cock.li','airmail.cc','firemail.cc','tfwno.gf','cock.lu','aaathats3as.com','national.shitposting.agency','cumallover.me']
 n = [
     'John', 'Jane', 'Michael', 'Emily', 'David', 'Sarah', 'Robert', 'Emma', 'William', 'Olivia',
     'James', 'Linda', 'Charles', 'Sophia', 'Daniel', 'Chloe', 'Matthew', 'Lily', 'Joseph', 'Grace',
@@ -109,50 +119,79 @@ s = [
     'White', 'Perry', 'Watson', 'Jenkins', 'Young', 'Wright', 'Cooper', 'Bailey', 'Flores', 'Cruz'
 ]
 
+g=lambda l:''.join(random.choices(string.ascii_lowercase+string.digits,k=l))
+p=lambda:''.join(random.choice(string.ascii_letters+string.digits+string.punctuation)for _ in range(64))
+e=lambda d:(f"{random.choice(n).lower()}{random.choice(s).lower()}{g(random.randint(2,4))}@{d}",p())
+print("\n".join(f"{i+1}: {domain}" for i, domain in enumerate(d)))
+c,cp=e(d[random.randint(0,7) if not (i:=input("Select a domain (1-8) or press Enter for random: ")) else max(0,min(int(i)-1,7))])
+pm,pmp=e('proton.me')
+om,omp=e('outlook.com')
+print(f"Cock.li: {c} | {cp}\nProtonMail: {pm} | {pmp}\nOutlook: {om} | {omp}")
 
-def g(l):
-    return ''.join(random.choices(string.ascii_lowercase + string.digits, k=l))
+# Expanded lists of prefixes, core words, and suffixes
+prefixes = [
+    'aether', 'binary', 'crypto', 'digital', 'epsilon', 'fractal', 'gamma', 'helix', 'infinity', 'joule',
+    'kelvin', 'lambda', 'matrix', 'nano', 'omega', 'photon', 'quantum', 'radiant', 'synth', 'tensor',
+    'utopia', 'vector', 'warp', 'xenon', 'yttrium', 'zeta', 'aurora', 'binary', 'celestial', 'dynamo',
+    'eclipse', 'flux', 'gravity', 'helios', 'isotope', 'jupiter', 'kaleidoscope', 'lithium', 'magma', 'nebula',
+    'orbit', 'pulsar', 'quasar', 'radium', 'singularity', 'tachyon', 'uranium', 'vortex', 'wormhole', 'x-ray',
+    'yukon', 'zircon', 'atomic', 'bionic', 'carbon', 'dyson', 'entropy', 'fusion', 'galactic', 'hadron',
+    'ionic', 'kinetic', 'laser', 'magnetic', 'neutrino', 'ozone', 'particle', 'quantum', 'relativity', 'scalar',
+    'thermal', 'ultraviolet', 'vacuum', 'wavelength', 'x-factor', 'yield', 'zero-point', 'acceleron', 'borealis', 'cosmo',
+    'dimension', 'electron', 'fermion', 'graviton', 'horizon', 'interstellar', 'jovian', 'kelvin', 'luminous', 'multiverse',
+    'neutron', 'orbital', 'planck', 'qubit', 'resonance', 'supernova', 'tesseract', 'unified', 'void', 'wavefunction',
+    'xenomorph', 'yang', 'zeitgeist', 'absolute', 'blackhole', 'continuum', 'dark-matter', 'event-horizon', 'fibonacci'
+]
 
-def p():
+core_words = [
+    'cascade', 'nebula', 'vortex', 'prism', 'nexus', 'quanta', 'fusion', 'nova', 'pulsar', 'quasar',
+    'radiance', 'singularity', 'spectrum', 'tempest', 'zenith', 'aurora', 'cosmos', 'eclipse', 'galaxy', 'horizon',
+    'infinity', 'nebula', 'orbit', 'parallax', 'quantum', 'radiant', 'stellar', 'universe', 'vortex', 'wormhole',
+    'x-ray', 'yocto', 'zephyr', 'atom', 'binary', 'core', 'dimension', 'entropy', 'fractal', 'gravity',
+    'helix', 'isotope', 'joule', 'kinetic', 'luminous', 'matrix', 'neutron', 'oscillation', 'photon', 'quark',
+    'resonance', 'scalar', 'tensor', 'uncertainty', 'vector', 'wave', 'x-factor', 'yield', 'zero-point', 'accelerate',
+    'beam', 'collide', 'diffract', 'emit', 'fission', 'gravitate', 'harmonize', 'ionize', 'jump', 'kaleidoscope',
+    'levitate', 'magnify', 'neutralize', 'oscillate', 'polarize', 'quantize', 'radiate', 'synchronize', 'teleport', 'unify',
+    'vibrate', 'warp', 'x-ray', 'yield', 'zoom', 'amplify', 'bend', 'compress', 'distort', 'expand',
+    'fluctuate', 'gyrate', 'hover', 'implode', 'juggle', 'knot', 'loop', 'morph', 'negate', 'orbit'
+]
+
+suffixes = [
+    'nexus', 'prime', 'quantum', 'rex', 'sigma', 'tau', 'ultra', 'vortex', 'wave', 'xen',
+    'yin', 'zeta', 'aeon', 'byte', 'core', 'dyne', 'echo', 'flux', 'giga', 'hyper',
+    'ion', 'jolt', 'kilo', 'lux', 'mega', 'neo', 'omni', 'pico', 'quad', 'rift',
+    'sync', 'tera', 'uni', 'volt', 'watt', 'xeno', 'yotta', 'zetta', 'apex', 'binary',
+    'cipher', 'delta', 'epsilon', 'fractal', 'gamma', 'helix', 'infinity', 'joule', 'kappa',
+    'lambda', 'mu', 'nu', 'omicron', 'pi', 'qubit', 'rho', 'sigma', 'theta', 'upsilon',
+    'phi', 'chi', 'psi', 'omega', 'absolute', 'beta', 'cosmic', 'dimension', 'entropy', 'fusion',
+    'gravity', 'horizon', 'isotope', 'kinetic', 'luminous', 'matrix', 'neutron', 'orbital', 'photon', 'quark',
+    'relativity', 'singularity', 'tachyon', 'uncertainty', 'vacuum', 'wormhole', 'x-factor', 'yang', 'zero-point', 'acceleron',
+    'boson', 'chromodynamic', 'deuterium', 'eigenstate', 'fermion', 'gluon', 'hadron', 'inflaton', 'lepton', 'meson'
+]
+
+# Function to generate a random username
+def generate_username():
+    prefix = random.choice(prefixes)
+    core_word = random.choice(core_words)
+    suffix = random.choice(suffixes)
+    username = prefix + core_word + suffix
+
+    # Optionally add a random number with a probability of 50%
+    if random.random() < 0.5:
+        number = random.randint(1, 999)
+        username += str(number)
+
+    return username
+
+def generate_password():
     return ''.join(random.choice(string.ascii_letters + string.digits + string.punctuation) for _ in range(64))
 
-def e(d):
-    return (f"{random.choice(n).lower()}{random.choice(s).lower()}{g(random.randint(2,4))}@{d}", p())
+# Generate and print a random username
+username = generate_username()
+print("your username is:", username)
+password = generate_password()
+print("Your password is:", password)
 
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    result = ""
-    selected_domains = d.copy()  # Default to all domains selected
-
-    if request.method == 'POST':
-        selected_domains = request.form.getlist('domains')
-        
-        results = []
-        for domain in selected_domains:
-            c, cp = e(domain)
-            results.append(f"{domain.capitalize()}:\nEmail: {c}\nPassword: {cp}\n")
-        
-        pm, pmp = e('proton.me')
-        results.append(f"ProtonMail:\nEmail: {pm}\nPassword: {pmp}")
-        
-        result = "\n".join(results)
-    
-    return render_template('index.html', domains=d, selected_domains=selected_domains, result=result)
-
-def find_available_port(start_port=5000, max_port=65535):
-    for port in range(start_port, max_port + 1):
-        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-            try:
-                s.bind(('localhost', port))
-                return port
-            except socket.error:
-                continue
-    return None
-
-if __name__ == '__main__':
-    port = find_available_port()
-    if port:
-        print(f"Starting server on port {port}")
-        app.run(debug=True, port=port)
-    else:
-        print("No available ports found.")
+random_first_name = random.choice(n)
+random_last_name = random.choice(s)
+print("Your first and last name is:", random_first_name, random_last_name)
