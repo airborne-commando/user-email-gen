@@ -119,15 +119,6 @@ s = [
     'White', 'Perry', 'Watson', 'Jenkins', 'Young', 'Wright', 'Cooper', 'Bailey', 'Flores', 'Cruz'
 ]
 
-g=lambda l:''.join(random.choices(string.ascii_lowercase+string.digits,k=l))
-p=lambda:''.join(random.choice(string.ascii_letters+string.digits+string.punctuation)for _ in range(64))
-e=lambda d:(f"{random.choice(n).lower()}{random.choice(s).lower()}{g(random.randint(2,4))}@{d}",p())
-print("\n".join(f"{i+1}: {domain}" for i, domain in enumerate(d)))
-c,cp=e(d[random.randint(0,7) if not (i:=input("Select a domain (1-8) or press Enter for random: ")) else max(0,min(int(i)-1,7))])
-pm,pmp=e('proton.me')
-om,omp=e('outlook.com')
-print(f"Cock.li: {c} | {cp}\nProtonMail: {pm} | {pmp}\nOutlook: {om} | {omp}")
-
 # Expanded lists of prefixes, core words, and suffixes
 prefixes = [
     'aether', 'binary', 'crypto', 'digital', 'epsilon', 'fractal', 'gamma', 'helix', 'infinity', 'joule',
@@ -169,6 +160,20 @@ suffixes = [
     'boson', 'chromodynamic', 'deuterium', 'eigenstate', 'fermion', 'gluon', 'hadron', 'inflaton', 'lepton', 'meson'
 ]
 
+# Function to generate random string of digits and letters of length l
+g = lambda l: ''.join(random.choices(string.ascii_lowercase + string.digits, k=l))
+
+# Function to generate random special characters (email username) of length 64
+p = lambda: ''.join(random.choice(string.ascii_letters + string.digits + string.punctuation) for _ in range(64))
+
+# Function to generate an email address based on a domain
+e = lambda d: (f"{random.choice(prefixes).lower()}{random.choice(core_words).lower()}{g(random.randint(2, 4))}@{d}", p())
+print("\n".join(f"{i+1}: {domain}" for i, domain in enumerate(d)))
+c,cp=e(d[random.randint(0,7) if not (i:=input("Select a domain (1-8) or press Enter for random: ")) else max(0,min(int(i)-1,7))])
+pm,pmp=e('proton.me')
+om,omp=e('outlook.com')
+print(f"\nCock.li: \n{c} \ngenerated password: \n{cp}\n\nProtonMail: \n{pm} \ngenerated password: \n{pmp}\n\nOutlook: \n{om} \ngenerated password: \n{omp}")
+
 # Function to generate a random username
 def generate_username():
     prefix = random.choice(prefixes)
@@ -187,11 +192,9 @@ def generate_password():
     return ''.join(random.choice(string.ascii_letters + string.digits + string.punctuation) for _ in range(64))
 
 # Generate and print a random username
-username = generate_username()
-print("your username is:", username)
-password = generate_password()
-print("Your password is:", password)
-
 random_first_name = random.choice(n)
 random_last_name = random.choice(s)
-print("Your first and last name is:", random_first_name, random_last_name)
+password = generate_password()
+username = generate_username()
+
+print("\n\nyour username is:\n", username, "\n\nYour password is:\n", password, "\n\nYour first and last name is:\n", random_first_name, random_last_name)
