@@ -191,3 +191,7 @@ username = generate_username()
 print("your username is:", username)
 password = generate_password()
 print("Your password is:", password)
+
+random_first_name = random.choice(n)
+random_last_name = random.choice(s)
+print("Your first and last name is:", random_first_name, random_last_name)
