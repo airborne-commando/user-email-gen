@@ -34,6 +34,17 @@
     <pre>{% for line in result.split('\n') %}{% if 'Email:' in line %}<span class="email">{{ line }}</span>{% elif 'Password:' in line %}<span class="password">{{ line }}</span>{% else %}{{ line }}{% endif %}
 {% endfor %}</pre>
     {% endif %}
+<!-- Displaying the Randomly Generated Name -->
+{% if first_name and last_name %}
+<h3>Randomly Generated Name:</h3>
+<p><strong>{{ first_name }} {{ last_name }}</strong></p>
+{% endif %}
+
+<!-- Displaying the Randomly Generated Username -->
+{% if username %}
+<h3>Randomly Generated Username:</h3>
+<p><strong>{{ username }}</strong></p>
+{% endif %}
 
     <script>
         document.getElementById('emailForm').addEventListener('submit', function(e) {
