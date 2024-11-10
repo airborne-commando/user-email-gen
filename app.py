@@ -1,20 +1,10 @@
-import random,string
+from flask import Flask, render_template, request
+import random, string
+import socket
 
-        # Print the ASCII art
-print("""
-▓█████  ███▄ ▄███▓ ▄▄▄       ██▓ ██▓         ▄████ ▓█████  ███▄    █ ▓█████  ██▀███   ▄▄▄     ▄▄▄█████▓ ▒█████   ██▀███  
-▓█   ▀ ▓██▒▀█▀ ██▒▒████▄    ▓██▒▓██▒        ██▒ ▀█▒▓█   ▀  ██ ▀█   █ ▓█   ▀ ▓██ ▒ ██▒▒████▄   ▓  ██▒ ▓▒▒██▒  ██▒▓██ ▒ ██▒
-▒███   ▓██    ▓██░▒██  ▀█▄  ▒██▒▒██░       ▒██░▄▄▄░▒███   ▓██  ▀█ ██▒▒███   ▓██ ░▄█ ▒▒██  ▀█▄ ▒ ▓██░ ▒░▒██░  ██▒▓██ ░▄█ ▒
-▒▓█  ▄ ▒██    ▒██ ░██▄▄▄▄██ ░██░▒██░       ░▓█  ██▓▒▓█  ▄ ▓██▒  ▐▌██▒▒▓█  ▄ ▒██▀▀█▄  ░██▄▄▄▄██░ ▓██▓ ░ ▒██   ██░▒██▀▀█▄  
-░▒████▒▒██▒   ░██▒ ▓█   ▓██▒░██░░██████▒   ░▒▓███▀▒░▒████▒▒██░   ▓██░░▒████▒░██▓ ▒██▒ ▓█   ▓██▒ ▒██▒ ░ ░ ████▓▒░░██▓ ▒██▒
-░░ ▒░ ░░ ▒░   ░  ░ ▒▒   ▓▒█░░▓  ░ ▒░▓  ░    ░▒   ▒ ░░ ▒░ ░░ ▒░   ▒ ▒ ░░ ▒░ ░░ ▒▓ ░▒▓░ ▒▒   ▓▒█░ ▒ ░░   ░ ▒░▒░▒░ ░ ▒▓ ░▒▓░
- ░ ░  ░░  ░      ░  ▒   ▒▒ ░ ▒ ░░ ░ ▒  ░     ░   ░  ░ ░  ░░ ░░   ░ ▒░ ░ ░  ░  ░▒ ░ ▒░  ▒   ▒▒ ░   ░      ░ ▒ ▒░   ░▒ ░ ▒░
-   ░   ░      ░     ░   ▒    ▒ ░  ░ ░      ░ ░   ░    ░      ░   ░ ░    ░     ░░   ░   ░   ▒    ░      ░ ░ ░ ▒    ░░   ░ 
-   ░  ░       ░         ░  ░ ░      ░  ░         ░    ░  ░         ░    ░  ░   ░           ░  ░            ░ ░     ░                                                                                                                              
-""")
+app = Flask(__name__)
 
-
-d=['cock.li','airmail.cc','firemail.cc','tfwno.gf','cock.lu','aaathats3as.com','national.shitposting.agency','cumallover.me']
+d = ['cock.li', 'airmail.cc', 'firemail.cc', 'tfwno.gf', 'cock.lu', 'aaathats3as.com', 'national.shitposting.agency', 'cumallover.me']
 n = [
     'John', 'Jane', 'Michael', 'Emily', 'David', 'Sarah', 'Robert', 'Emma', 'William', 'Olivia',
     'James', 'Linda', 'Charles', 'Sophia', 'Daniel', 'Chloe', 'Matthew', 'Lily', 'Joseph', 'Grace',
@@ -119,16 +109,7 @@ s = [
     'White', 'Perry', 'Watson', 'Jenkins', 'Young', 'Wright', 'Cooper', 'Bailey', 'Flores', 'Cruz'
 ]
 
-g=lambda l:''.join(random.choices(string.ascii_lowercase+string.digits,k=l))
-p=lambda:''.join(random.choice(string.ascii_letters+string.digits+string.punctuation)for _ in range(64))
-e=lambda d:(f"{random.choice(n).lower()}{random.choice(s).lower()}{g(random.randint(2,4))}@{d}",p())
-print("\n".join(f"{i+1}: {domain}" for i, domain in enumerate(d)))
-c,cp=e(d[random.randint(0,7) if not (i:=input("Select a domain (1-8) or press Enter for random: ")) else max(0,min(int(i)-1,7))])
-pm,pmp=e('proton.me')
-om,omp=e('outlook.com')
-print(f"Cock.li: {c} | {cp}\nProtonMail: {pm} | {pmp}\nOutlook: {om} | {omp}")
 
-# Expanded lists of prefixes, core words, and suffixes
 prefixes = [
     'aether', 'binary', 'crypto', 'digital', 'epsilon', 'fractal', 'gamma', 'helix', 'infinity', 'joule',
     'kelvin', 'lambda', 'matrix', 'nano', 'omega', 'photon', 'quantum', 'radiant', 'synth', 'tensor',
@@ -169,6 +150,21 @@ suffixes = [
     'boson', 'chromodynamic', 'deuterium', 'eigenstate', 'fermion', 'gluon', 'hadron', 'inflaton', 'lepton', 'meson'
 ]
 
+
+def g(l):
+    return ''.join(random.choices(string.ascii_lowercase + string.digits, k=l))
+
+def p():
+    return ''.join(random.choice(string.ascii_letters + string.digits + string.punctuation) for _ in range(64))
+
+def e(d):
+    return (f"{random.choice(n).lower()}{random.choice(s).lower()}{g(random.randint(2,4))}@{d}", p())
+
+def random_name():
+    first_name = random.choice(n)
+    last_name = random.choice(s)
+    return first_name, last_name
+
 # Function to generate a random username
 def generate_username():
     prefix = random.choice(prefixes)
@@ -183,15 +179,53 @@ def generate_username():
 
     return username
 
-def generate_password():
-    return ''.join(random.choice(string.ascii_letters + string.digits + string.punctuation) for _ in range(64))
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    result = ""
+    selected_domains = d.copy()  # Default to all domains selected
 
-# Generate and print a random username
-username = generate_username()
-print("your username is:", username)
-password = generate_password()
-print("Your password is:", password)
+    if request.method == 'POST':
+        selected_domains = request.form.getlist('domains')
+        
+        results = []
+        for domain in selected_domains:
+            c, cp = e(domain)
+            results.append(f"{domain.capitalize()}:\nEmail: {c}\nPassword: {cp}\n")
+        
+        # Generate ProtonMail and Outlook results
+        pm, pmp = e('proton.me')
+        om, omp = e('outlook.com')
+        
+        # Append to results
+        results.append(f"ProtonMail:\nEmail: {pm}\nPassword: {pmp}")
+        results.append(f"Outlook:\nEmail: {om}\nPassword: {omp}")
+        
+        result = "\n".join(results)
 
-random_first_name = random.choice(n)
-random_last_name = random.choice(s)
-print("Your first and last name is:", random_first_name, random_last_name)
+    # Get random first and last name
+    random_first_name, random_last_name = random_name()
+    
+    # Generate a random username
+    random_username = generate_username()
+
+    return render_template('index.html', domains=d, selected_domains=selected_domains, result=result,
+                           first_name=random_first_name, last_name=random_last_name, username=random_username)
+
+
+def find_available_port(start_port=5000, max_port=65535):
+    for port in range(start_port, max_port + 1):
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            try:
+                s.bind(('localhost', port))
+                return port
+            except socket.error:
+                continue
+    return None
+
+if __name__ == '__main__':
+    port = find_available_port()
+    if port:
+        print(f"Starting server on port {port}")
+        app.run(debug=True, port=port)
+    else:
+        print("No available ports found.")
