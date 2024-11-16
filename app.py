@@ -208,7 +208,10 @@ def index():
     # Generate a random username
     random_username = generate_username()
 
-    return render_template('index.html', domains=d, selected_domains=selected_domains, result=result,
+    # return render_template('index.html', domains=d, selected_domains=selected_domains, result=result,
+    #                        first_name=random_first_name, last_name=random_last_name, username=random_username)
+
+    return render_template('index.html', domains=d, result=result,
                            first_name=random_first_name, last_name=random_last_name, username=random_username)
 
 
