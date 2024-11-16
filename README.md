@@ -28,7 +28,7 @@ For a HTML page
 
 when executed it will display a username and password for outlook, proton ~~and~~ ~~cock.li~~
 
-~~You will still need to solve a captcha for cock.li if you decide to use this.~~~
+~~You will still need to solve a captcha for cock.li if you decide to use this.~~
 
 * Use a VPN, mullvad.
 
