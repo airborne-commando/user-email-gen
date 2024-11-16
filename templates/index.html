@@ -18,35 +18,46 @@
     <h1>Email Generator</h1>
     <form method="post" id="emailForm">
         <div class="domain-list">
-            {% for domain in domains %}
-            <div class="domain-item">
-                <input type="checkbox" id="{{ domain }}" name="domains" value="{{ domain }}" 
-                       {% if domain in selected_domains %}checked{% endif %}>
-                <label for="{{ domain }}">{{ domain }}</label>
-            </div>
-            {% endfor %}
+            <!-- {% for domain in domains %} -->
+            <!-- <div class="domain-item"> -->
+                <!-- <input type="checkbox" id="{{ domain }}" name="domains" value="{{ domain }}"  -->
+                       <!-- {% if domain in selected_domains %}checked{% endif %}> -->
+                <!-- <label for="{{ domain }}">{{ domain }}</label> -->
+            <!-- </div> -->
+            <!-- {% endfor %} -->
         </div>
-        <p><small>Select domains you want to generate emails for</small></p>
+        <!-- <p><small>Select domains you want to generate emails for</small></p> -->
         <input type="submit" value="Generate">
     </form>
+
     {% if result %}
     <h2>Generated Emails:</h2>
-    <pre>{% for line in result.split('\n') %}{% if 'Email:' in line %}<span class="email">{{ line }}</span>{% elif 'Password:' in line %}<span class="password">{{ line }}</span>{% else %}{{ line }}{% endif %}
-{% endfor %}</pre>
+    <pre>
+        {% for line in result.split('\n') %}
+            {% if 'Email:' in line %}
+                <span class="email">{{ line }}</span>
+            {% elif 'Password:' in line %}
+                <span class="password">{{ line }}</span>
+            {% else %}
+                {{ line }}
+            {% endif %}
+        {% endfor %}
+    </pre>
     {% endif %}
-<!-- Displaying the Randomly Generated Name -->
-{% if first_name and last_name %}
-<h3>Randomly Generated Name:</h3>
-<p><strong>{{ first_name }} {{ last_name }}</strong></p>
-{% endif %}
 
-<!-- Displaying the Randomly Generated Username -->
-{% if username %}
-<h3>Randomly Generated Username:</h3>
-<p><strong>{{ username }}</strong></p>
-{% endif %}
+    <!-- Displaying the Randomly Generated Name -->
+    {% if first_name and last_name %}
+    <h3>Randomly Generated Name:</h3>
+    <p><strong>{{ first_name }} {{ last_name }}</strong></p>
+    {% endif %}
 
-    <script>
+    <!-- Displaying the Randomly Generated Username -->
+    {% if username %}
+    <h3>Randomly Generated Username:</h3>
+    <p><strong>{{ username }}</strong></p>
+    {% endif %}
+
+<!--     <script>
         document.getElementById('emailForm').addEventListener('submit', function(e) {
             var checkboxes = document.querySelectorAll('input[name="domains"]:checked');
             if (checkboxes.length === 0) {
@@ -54,6 +65,6 @@
                 alert('Please select at least one domain.');
             }
         });
-    </script>
+    </script> -->
 </body>
 </html>
