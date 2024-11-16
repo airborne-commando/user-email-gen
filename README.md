@@ -32,7 +32,7 @@ when executed it will display a username and password for outlook, proton ~~and~
 
 * Use a VPN, mullvad.
 
-exmaple:
+~~exmaple:~~
 
  ~~1: cock.li
 2: airmail.cc
