@@ -1,4 +1,4 @@
-# Email username for ~~both~~ ~~cock.li~~ just proton mail and outlook (cock.li is optional):
+# Email username gen for both proton mail and outlook (cock.li is optional):
 
 To install and just run for a CLI just run
 
@@ -24,14 +24,14 @@ after that run
 For a HTML page
 
 
-~~From there you should be given a list of domains to choose from or if you want you can choose a random one from cock.li~~
+From there you should be given a list of domains to choose from or if you want you can choose a random one from cock.li (optional, see below)
 
-when executed it will display a username and password for outlook, proton ~~and~~ ~~cock.li~~
+when executed it will display a username and password for outlook, proton and cock.li (optional)
 
-~~You will still need to solve a captcha for cock.li if you decide to use this.~~
+You will still need to solve a captcha for cock.li if you decide to use this.
 
-* Use a VPN, mullvad.
-* OR if you'd want and trust cock.li, uncomment these lines out in
+* Use a VPN, mullvad (if you decided to not edit the webapp and index.html)
+* OR if you'd want and trust cock.li, uncomment these lines
 
 app.py:
 
