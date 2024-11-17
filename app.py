@@ -208,6 +208,8 @@ def index():
     # Generate a random username
     random_username = generate_username()
 
+    # Uncomment this line out for cock.li and comment the next line out if you choose to use cock.li
+
     # return render_template('index.html', domains=d, selected_domains=selected_domains, result=result,
     #                        first_name=random_first_name, last_name=random_last_name, username=random_username)
 
