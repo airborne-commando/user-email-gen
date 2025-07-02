@@ -89,5 +89,6 @@ exmaple output if enabled:
 
 Seems to be a DNS issue; but the alert just seems to be really REALLY stupid.
 
+Also will note client side is down, better use stuff like [thunderbird](https://www.thunderbird.net/en-US/).
 
 # Do not abuse this
